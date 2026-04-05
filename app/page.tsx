@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
@@ -60,7 +61,15 @@ export default function Home() {
               key={room.title}
               className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm"
             >
-              <div className="mb-4 aspect-[4/3] rounded-2xl bg-stone-200" />
+              <div className="mb-4 overflow-hidden rounded-2xl">
+  <Image
+    src="/images/rooms/IMG_9586.webp"
+    alt="Zimmer in Leos Bergwelt"
+    width={800}
+    height={600}
+    className="aspect-[4/3] h-auto w-full object-cover"
+  />
+</div>
               <h3 className="text-xl font-semibold">{room.title}</h3>
               <p className="mt-3 leading-7 text-stone-600">{room.text}</p>
             </article>
