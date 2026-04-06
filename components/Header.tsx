@@ -43,7 +43,7 @@ export default function Header() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         {/* Logo - größer, ohne Text */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center transition-transform hover:scale-105">
           <Image
             src="/images/logo/leos_bergwelt_logo_freigestellt.png"
             alt="Leos Bergwelt Logo"

@@ -88,7 +88,7 @@ export default function EnzianPage() {
                 Zimmer Enzian
               </h1>
               <p className="mt-4 text-lg text-white/90 md:text-xl">
-                Preislich am attraktivsten - ohne auf Komfort, Stil und liebevolle Details zu verzichten
+                Preislich am attraktivsten - ohne auf Komfort und Stil zu verzichten
               </p>
             </div>
           </div>
@@ -100,22 +100,28 @@ export default function EnzianPage() {
             <div className="grid gap-12 lg:grid-cols-2">
               {/* Text */}
               <div className="text-[#3D2817]">
-                <h2 className="font-serif text-3xl font-bold">Willkommen im Zimmer Enzian</h2>
-                
+                <p className="leading-relaxed">
+                  Ideal für Wanderer, Skifahrer & Naturfans! In Tiefenbach bei Oberstdorf vermieten wir eine komplette Etage mit 3 gemütlichen Doppelzimmern – perfekt für Freunde oder Paare. Jedes Zimmer hat ein komfortables Doppelbett. Eine Gemeinschaftsküche und ein gemeinsam genutztes Bad sowie ein zusätzliches Gäste-WC stehen euch zur Verfügung. Ruhige Lage nahe der Breitachklamm – perfekt als Ausgangspunkt für Bergtouren und Skitage!
+                </p>
+
                 <p className="mt-6 leading-relaxed">
-                  Das Zimmer Enzian ist die perfekte Wahl für alle, die Wert auf ein gutes Preis-Leistungs-Verhältnis legen, ohne dabei auf Komfort und Stil verzichten zu müssen. Mit viel Liebe zum Detail eingerichtet, bietet es dir alles, was du für einen erholsamen Aufenthalt brauchst.
+                  🌿 <strong>Zimmer Enzian – gemütlich, individuell & nachhaltig</strong> Unser Zimmer Enzian vereint Natürlichkeit mit Komfort: Das Doppelbett und die Möbel wurden liebevoll aus recyceltem Holz selbst gebaut – jedes Stück ist ein Unikat mit Charakter.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  Das Zimmer verfügt über ein gemütliches Doppelbett, natürliche Materialien und eine warme, einladende Atmosphäre. Hier kannst du nach einem Tag in den Bergen zur Ruhe kommen und neue Energie tanken.
+                  📺 Für entspannte Abende gibt's einen Flachbild-TV mit Netflix, dazu eine kuschelige Sitzecke, perfekt zum Lesen oder Abschalten.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  🛏️ Das Zimmer Enzian bietet Platz für 2 Personen und ist mit einem bequemen Doppelbett ausgestattet.
+                  💡 Plissees sorgen für angenehme Verdunkelung, und dank schnellem Glasfaser-WLAN bleibst du auch digital bestens verbunden.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  🏔️ Vom Zimmer aus hast du einen schönen Blick ins Grüne und kannst die Ruhe der Natur genießen.
+                  🧥 Eine Garderobe bietet Platz für Jacken, Wanderschuhe & Co. Ein Ort zum Wohlfühlen – natürlich, schlicht und ganz entspannt.
+                </p>
+
+                <p className="mt-4 leading-relaxed">
+                  �️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
@@ -134,6 +140,28 @@ export default function EnzianPage() {
                     Ihr erreicht uns jederzeit per Nachricht, Anruf oder persönlich vor Ort – wir sind da, wenn ihr uns braucht, lassen euch aber gleichzeitig euren Freiraum.
                   </p>
                 </div>
+
+                <div className="mt-8">
+                  <h3 className="font-serif text-xl font-bold">Weitere wichtige Hinweise</h3>
+                  <p className="mt-3 leading-relaxed">
+                    Für die Anmeldung bei Oberstdorf brauchen wir von allen Gästen die vollen Namen und Geburtsdaten sowie eine Adresse und eine Mailadresse. Die Informationen können uns im Airbnb Chat geschickt werden.
+                  </p>
+                  <p className="mt-3 leading-relaxed">
+                    Es fällt pro Tag eine Kurtaxe von 4,15€ pro Person pro Nacht an.
+                  </p>
+                  <p className="mt-3 leading-relaxed">
+                    Unsere Gäste erhalten den Oberstdorf Pass per Email. Dieser inkludiert kostenloses Busfahren und viele Vergünstigungen auf Attraktionen.
+                  </p>
+                </div>
+
+                <Link
+                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-block rounded-full bg-[#2B7A9B] px-8 py-4 font-semibold text-white transition-all hover:bg-[#236580]"
+                >
+                  Jetzt buchen
+                </Link>
               </div>
 
               {/* Highlight Images Grid */}
@@ -170,10 +198,19 @@ export default function EnzianPage() {
                 alt="Zimmer Enzian Galerie"
                 onImageClick={(index) => openLightbox(highlightImages.length + index)}
               />
+              
+              {/* Booking Button */}
+              <div className="mt-8 text-center">
+                <Link
+                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
+                >
+                  Jetzt buchen
+                </Link>
+              </div>
             </div>
-
-            {/* Tramino Booking Widget */}
-            <RoomBookingWidget roomName="Enzian" />
 
             {/* Other Rooms */}
             <div className="mt-24">
@@ -184,7 +221,7 @@ export default function EnzianPage() {
                     <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
                     <div className="p-6">
                       <Link href={`/zimmer/${room.slug}`}>
-                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B]">
+                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4]">
                           {room.name}
                         </h4>
                       </Link>
