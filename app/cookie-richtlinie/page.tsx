@@ -85,8 +85,7 @@ export default function CookieRichtliniePage() {
           </p>
         </div>
       </div>
-    </div>
-  </div>
+      </div>
       <Footer />
     </>
   );
