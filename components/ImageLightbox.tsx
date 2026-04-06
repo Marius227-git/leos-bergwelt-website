@@ -63,8 +63,11 @@ export default function ImageLightbox({ images, alt, initialIndex = 0 }: ImageLi
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95" onClick={closeLightbox}>
           <button
-            onClick={closeLightbox}
-            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
+            className="absolute right-4 top-4 z-[101] rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
             aria-label="Schließen"
           >
             <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

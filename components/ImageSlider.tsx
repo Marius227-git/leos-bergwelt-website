@@ -6,35 +6,52 @@ import Image from "next/image";
 interface ImageSliderProps {
   images: string[];
   alt: string;
+  clickable?: boolean;
+  onImageClick?: (index: number) => void;
 }
 
-export default function ImageSlider({ images, alt }: ImageSliderProps) {
+export default function ImageSlider({ images, alt, clickable = false, onImageClick }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToNext = () => {
+  const goToNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  const goToPrevious = () => {
+  const goToPrevious = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleImageClick = () => {
+    if (clickable && onImageClick) {
+      onImageClick(currentIndex);
+    }
   };
 
   return (
     <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
-      <Image
-        src={images[currentIndex]}
-        alt={`${alt} - Bild ${currentIndex + 1}`}
-        fill
-        className="object-cover transition-transform duration-500"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
+      <div 
+        onClick={handleImageClick}
+        className={clickable ? "cursor-pointer" : ""}
+      >
+        <Image
+          src={images[currentIndex]}
+          alt={`${alt} - Bild ${currentIndex + 1}`}
+          fill
+          className="object-cover transition-transform duration-500"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons - Always visible */}
       {images.length > 1 && (
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 opacity-0 transition-opacity hover:bg-white group-hover:opacity-100"
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-lg transition-all hover:bg-white hover:scale-110"
             aria-label="Vorheriges Bild"
           >
             <svg className="h-6 w-6 text-[#3D2817]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +60,7 @@ export default function ImageSlider({ images, alt }: ImageSliderProps) {
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 opacity-0 transition-opacity hover:bg-white group-hover:opacity-100"
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-lg transition-all hover:bg-white hover:scale-110"
             aria-label="Nächstes Bild"
           >
             <svg className="h-6 w-6 text-[#3D2817]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +73,11 @@ export default function ImageSlider({ images, alt }: ImageSliderProps) {
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  setCurrentIndex(index);
+                }}
                 className={`h-2 w-2 rounded-full transition-all ${
                   index === currentIndex ? "w-6 bg-white" : "bg-white/50"
                 }`}

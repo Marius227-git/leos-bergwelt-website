@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+import Footer from "@/components/sections/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,7 +9,9 @@ export const metadata: Metadata = {
 
 export default function CookieRichtliniePage() {
   return (
-    <div className="bg-[#FAF8F5] py-24">
+    <>
+      <Header />
+    <div className="bg-[#f9faed] min-h-screen py-24">
       <div className="mx-auto max-w-4xl px-6 md:px-10">
         <h1 className="font-serif text-4xl font-bold text-[#3D2817] md:text-5xl">
           Cookie-Richtlinie
@@ -82,5 +86,8 @@ export default function CookieRichtliniePage() {
         </div>
       </div>
     </div>
+  </div>
+      <Footer />
+    </>
   );
 }

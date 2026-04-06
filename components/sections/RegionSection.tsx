@@ -13,16 +13,27 @@ export default function RegionSection() {
     },
     {
       title: "Entspannen",
-      description: "Gemütliches, modernes Zimmer nahe des Breitach-Flusses",
+      description: "Gemütliches Zimmer nahe der Breitach",
     },
   ];
 
   return (
     <section id="region" className="relative overflow-hidden bg-stone-900 py-32 md:py-40">
-      {/* Hintergrundbild */}
-      <div className="absolute inset-0 z-0">
+      {/* Hintergrundbild - Mobile */}
+      <div className="absolute inset-0 z-0 md:hidden">
         <Image
-          src="/images/hero/Rubihorn_Oberstdorf_Airbnb_Tiefenbach_Breitachklamm_2.webp"
+          src="/images/section_activities/oberstdorf_mobil_leos_bergwelt_ferienwohnung.webp"
+          alt="Oberallgäu Region"
+          fill
+          className="object-cover opacity-30"
+          sizes="100vw"
+        />
+      </div>
+      
+      {/* Hintergrundbild - Desktop */}
+      <div className="absolute inset-0 z-0 hidden md:block">
+        <Image
+          src="/images/section_activities/oberstdorf_desktop_leos_bergwelt_ferienwohnung.webp"
           alt="Oberallgäu Region"
           fill
           className="object-cover opacity-30"
@@ -48,9 +59,9 @@ export default function RegionSection() {
               <Link
                 key={item.title}
                 href="/allgaeu-erleben"
-                className="group rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/20"
+                className="group rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/30 active:bg-white/30 md:active:bg-white/10"
               >
-                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-[#2B7A9B]">
+                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-[#F2F7E4] group-active:text-[#F2F7E4] md:group-active:text-white">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-white/80">{item.description}</p>

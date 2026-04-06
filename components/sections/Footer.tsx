@@ -21,9 +21,7 @@ export default function Footer() {
               <span className="font-serif text-2xl font-bold">Leos Bergwelt</span>
             </Link>
             <p className="mt-6 max-w-md text-sm leading-relaxed opacity-70">
-              Moderne Urlaubstage in den Bergen des Oberallgäu. Drei liebevoll
-              gestaltete Zimmer für deinen perfekten Urlaub in Tiefenbach bei
-              Oberstdorf.
+              Entspannte Urlaubstage in den Bergen um Oberstdorf. Drei liebevoll gestaltete Zimmer für deinen perfekten Urlaub in Tiefenbach bei Oberstdorf.
             </p>
           </div>
 
@@ -33,8 +31,6 @@ export default function Footer() {
               Kontakt
             </h3>
             <ul className="mt-6 space-y-3 text-sm opacity-70">
-              <li>Tiefenbach, Oberstdorf</li>
-              <li>Oberallgäu, Deutschland</li>
               <li>
                 <a
                   href="mailto:info@leos-bergwelt.de"
@@ -43,6 +39,8 @@ export default function Footer() {
                   info@leos-bergwelt.de
                 </a>
               </li>
+              <li>Im Weidach 22</li>
+              <li>87561 Oberstdorf-Tiefenbach</li>
             </ul>
           </div>
 
@@ -60,6 +58,11 @@ export default function Footer() {
               <li>
                 <Link href="/allgaeu-erleben" className="transition hover:opacity-100">
                   Allgäu Erleben
+                </Link>
+              </li>
+              <li>
+                <Link href="/kontakt" className="transition hover:opacity-100">
+                  Kontakt
                 </Link>
               </li>
               <li>

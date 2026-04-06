@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+import Footer from "@/components/sections/Footer";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -48,7 +50,9 @@ const activities = [
 export default function AllgaeuErlebenPage() {
   return (
     <>
-      {/* Hero */}
+      <Header />
+      <main className="min-h-screen bg-[#f9faed]">
+        {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-[#3D2817]">
         <div className="absolute inset-0 z-0">
           <Image
@@ -161,6 +165,8 @@ export default function AllgaeuErlebenPage() {
           </div>
         </div>
       </section>
+      </main>
+      <Footer />
     </>
   );
 }

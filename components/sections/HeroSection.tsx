@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import ScrollIcon from "@/components/ScrollIcon";
 
 export default function HeroSection() {
   return (
@@ -49,9 +48,6 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
-
-      {/* Rotierendes Scroll-Icon mit Logo */}
-      <ScrollIcon />
     </section>
   );
 }

@@ -16,6 +16,7 @@ const navigation = [
     ],
   },
   { name: "Allgäu Erleben", href: "/allgaeu-erleben" },
+  { name: "Kontakt", href: "/kontakt" },
   { name: "Buchung", href: "/#buchung" },
 ];
 
@@ -125,26 +126,26 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu - Berghotel Style */}
+      {/* Mobile Menu - Berghotel Balderschwang Style */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[88px] z-40 bg-[#F2F7E4] lg:hidden">
-          <ul className="flex h-full flex-col items-center justify-center space-y-8 px-6">
+        <div className="fixed inset-0 z-40 bg-[#d8dcc4] lg:hidden">
+          <ul className="flex h-full flex-col items-center justify-center space-y-6 px-6">
             {navigation.map((item) => (
-              <li key={item.name} className="w-full text-center">
+              <li key={item.name} className="text-center">
                 <Link
                   href={item.href}
-                  className="block py-3 text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B]"
+                  className="block font-serif text-3xl font-normal text-[#8B8B5C] transition-colors hover:text-[#3D2817] md:text-4xl"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
                 {item.submenu && (
-                  <ul className="mt-4 space-y-2">
+                  <ul className="mt-3 space-y-2">
                     {item.submenu.map((subitem) => (
                       <li key={subitem.name}>
                         <Link
                           href={subitem.href}
-                          className="block py-2 text-lg text-[#8B8B5C] transition-colors hover:text-[#2B7A9B]"
+                          className="block text-base text-[#8B8B5C]/70 transition-colors hover:text-[#3D2817]"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {subitem.name}
@@ -155,15 +156,6 @@ export default function Header() {
                 )}
               </li>
             ))}
-            <li className="pt-8">
-              <Link
-                href="/#buchung"
-                className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 text-lg font-bold text-white transition-all hover:bg-[#236580]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Jetzt buchen
-              </Link>
-            </li>
           </ul>
         </div>
       )}

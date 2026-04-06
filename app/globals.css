@@ -7,8 +7,9 @@
   --color-primary-brown: #3D2817;
   --color-bg-light: #F2F7E4;
   --color-bg-cream: #f5eac6;
+  --color-bg-main: #f9faed;
   
-  --background: var(--color-bg-cream);
+  --background: var(--color-bg-main);
   --foreground: var(--color-primary-brown);
 }
 
@@ -23,6 +24,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Safe area for mobile (above header) */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top, 0);
+    background: #F2F7E4;
+    z-index: 9999;
+  }
 }
 
 /* Smooth Scrolling */

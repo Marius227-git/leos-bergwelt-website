@@ -39,7 +39,7 @@ const rooms = [
 
 export default function RoomsSection() {
   return (
-    <section id="zimmer" className="bg-[#f5eac6] py-24 md:py-32">
+    <section id="zimmer" className="bg-[#f9faed] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-[#8B8B5C]">
@@ -52,37 +52,33 @@ export default function RoomsSection() {
 
         <div className="mt-16 grid gap-12 md:grid-cols-3">
           {rooms.map((room) => (
-            <Link
-              key={room.slug}
-              href={`/zimmer/${room.slug}`}
-              className="group"
-            >
-              <article className="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
-                <div className="p-6">
-                  <h3 className="font-serif text-2xl font-bold text-[#3D2817]">
+            <article key={room.slug} className="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
+              <div className="p-6">
+                <Link href={`/zimmer/${room.slug}`}>
+                  <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B] cursor-pointer">
                     {room.name}
                   </h3>
-                  <p className="mt-3 text-[#8B8B5C]">{room.description}</p>
-                  <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-[#2B7A9B]">
-                    Details ansehen
-                    <svg
-                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </article>
-            </Link>
+                </Link>
+                <p className="mt-3 text-[#8B8B5C]">{room.description}</p>
+                <Link href={`/zimmer/${room.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#F2F7E4] bg-[#F2F7E4] px-4 py-2 rounded-full transition-colors hover:bg-[#e5efd5]">
+                  <span className="text-[#3D2817]">Details ansehen</span>
+                  <svg
+                    className="h-4 w-4 text-[#3D2817]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </div>
