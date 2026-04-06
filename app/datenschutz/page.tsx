@@ -87,8 +87,7 @@ export default function DatenschutzPage() {
           </p>
         </div>
       </div>
-    </div>
-  </div>
+      </div>
       <Footer />
     </>
   );
