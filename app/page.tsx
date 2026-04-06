@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f9faed] text-stone-900">
+      <main className="min-h-screen bg-[#fcfcf7] text-stone-900">
         <HeroSection />
         <ScrollIcon />
         <RoomsSection />

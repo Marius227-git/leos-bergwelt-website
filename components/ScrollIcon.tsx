@@ -1,34 +1,64 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 export default function ScrollIcon() {
   const [rotation, setRotation] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+  const lastScrollY = useRef(0);
+  const animationFrame = useRef<number | null>(null);
 
   useEffect(() => {
+    let lastTime = Date.now();
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Smooth 360° rotation
-      setRotation((scrollY / 500) * 360);
+      const currentScrollY = window.scrollY;
+      const currentTime = Date.now();
+      const deltaTime = currentTime - lastTime;
+      const deltaScroll = currentScrollY - lastScrollY.current;
+
+      // Calculate velocity based on scroll distance
+      const newVelocity = (deltaScroll / deltaTime) * 10;
+      setVelocity(newVelocity);
+
+      lastScrollY.current = currentScrollY;
+      lastTime = currentTime;
+    };
+
+    // Smooth deceleration animation
+    const animate = () => {
+      setRotation((prev) => prev + velocity);
+      setVelocity((prev) => prev * 0.95); // Smooth deceleration
+
+      animationFrame.current = requestAnimationFrame(animate);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    animationFrame.current = requestAnimationFrame(animate);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+    };
+  }, [velocity]);
 
   return (
-    <div className="flex justify-center py-8 md:hidden lg:hidden">
-      <div
-        className="flex h-16 w-16 items-center justify-center transition-transform duration-100 ease-linear"
-        style={{ transform: `rotate(${rotation}deg)` }}
-      >
+    <div className="flex justify-center pb-8 pt-4 md:pb-12 lg:hidden">
+      <div className="relative h-12 w-12">
         <Image
-          src="/images/logo/leos_bergwelt_scrolling_symbol.png"
-          alt="Scroll Symbol"
-          width={64}
-          height={64}
-          className="h-16 w-16"
+          src="/images/logo/leos_bergwelt_scrolling_symbol_neu.png"
+          alt=""
+          fill
+          className="object-contain"
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            willChange: "transform",
+          }}
+          sizes="48px"
+          priority
         />
       </div>
     </div>

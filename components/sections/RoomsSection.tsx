@@ -6,7 +6,7 @@ const rooms = [
     name: "Enzian",
     slug: "enzian",
     description:
-      "Preislich am attraktivsten - ohne auf Komfort, Stil und liebevolle Details zu verzichten.",
+      "Preislich am attraktivsten - ohne auf Komfort und Stil zu verzichten",
     images: [
       "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_1.webp",
       "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_2.webp",
@@ -39,7 +39,7 @@ const rooms = [
 
 export default function RoomsSection() {
   return (
-    <section id="zimmer" className="bg-[#f9faed] py-24 md:py-32">
+    <section id="zimmer" className="bg-[#fcfcf7] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-[#8B8B5C]">
@@ -56,7 +56,7 @@ export default function RoomsSection() {
               <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
               <div className="p-6">
                 <Link href={`/zimmer/${room.slug}`}>
-                  <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B] cursor-pointer">
+                  <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4] cursor-pointer">
                     {room.name}
                   </h3>
                 </Link>
