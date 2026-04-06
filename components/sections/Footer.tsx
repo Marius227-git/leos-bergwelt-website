@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#3D2817] text-white">
+    <footer className="bg-[#F2F7E4] text-[#3D2817]">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 md:grid-cols-4">
           {/* Logo & Beschreibung */}
@@ -20,7 +20,7 @@ export default function Footer() {
               />
               <span className="font-serif text-2xl font-bold">Leos Bergwelt</span>
             </Link>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">
+            <p className="mt-6 max-w-md text-sm leading-relaxed opacity-70">
               Moderne Urlaubstage in den Bergen des Oberallgäu. Drei liebevoll
               gestaltete Zimmer für deinen perfekten Urlaub in Tiefenbach bei
               Oberstdorf.
@@ -32,13 +32,13 @@ export default function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-[0.2em]">
               Kontakt
             </h3>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
+            <ul className="mt-6 space-y-3 text-sm opacity-70">
               <li>Tiefenbach, Oberstdorf</li>
               <li>Oberallgäu, Deutschland</li>
               <li>
                 <a
                   href="mailto:info@leos-bergwelt.de"
-                  className="transition hover:text-white"
+                  className="transition hover:opacity-100"
                 >
                   info@leos-bergwelt.de
                 </a>
@@ -51,19 +51,19 @@ export default function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-[0.2em]">
               Navigation
             </h3>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
+            <ul className="mt-6 space-y-3 text-sm opacity-70">
               <li>
-                <Link href="/zimmer" className="transition hover:text-white">
+                <Link href="/zimmer" className="transition hover:opacity-100">
                   Zimmer
                 </Link>
               </li>
               <li>
-                <Link href="/allgaeu-erleben" className="transition hover:text-white">
+                <Link href="/allgaeu-erleben" className="transition hover:opacity-100">
                   Allgäu Erleben
                 </Link>
               </li>
               <li>
-                <Link href="/#buchung" className="transition hover:text-white">
+                <Link href="/#buchung" className="transition hover:opacity-100">
                   Buchung
                 </Link>
               </li>
@@ -71,17 +71,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/20 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/60 md:flex-row">
+        <div className="mt-12 border-t border-[#3D2817]/20 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-sm opacity-60 md:flex-row">
             <p>© {currentYear} Leos Bergwelt. Alle Rechte vorbehalten.</p>
             <div className="flex gap-6">
-              <Link href="/impressum" className="transition hover:text-white">
+              <Link href="/impressum" className="transition hover:opacity-100">
                 Impressum
               </Link>
-              <Link href="/datenschutz" className="transition hover:text-white">
+              <Link href="/datenschutz" className="transition hover:opacity-100">
                 Datenschutz
               </Link>
-              <Link href="/cookie-richtlinie" className="transition hover:text-white">
+              <Link href="/cookie-richtlinie" className="transition hover:opacity-100">
                 Cookie-Richtlinie
               </Link>
             </div>

@@ -36,27 +36,20 @@ export default function Header() {
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#FAF8F5]/98 shadow-lg backdrop-blur-sm"
+          ? "bg-[#F2F7E4]/98 shadow-lg backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
+        {/* Logo - größer, ohne Text */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/images/logo/leos_bergwelt_logo_freigestellt.png"
             alt="Leos Bergwelt Logo"
-            width={60}
-            height={60}
-            className="h-12 w-12 md:h-14 md:w-14"
+            width={80}
+            height={80}
+            className="h-16 w-16 md:h-20 md:w-20"
           />
-          <span
-            className={`hidden text-xl font-bold transition-colors md:block ${
-              scrolled ? "text-[#3D2817]" : "text-white"
-            }`}
-          >
-            Leos Bergwelt
-          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -77,7 +70,7 @@ export default function Header() {
                     <li key={subitem.name}>
                       <Link
                         href={subitem.href}
-                        className="block px-4 py-2 text-sm text-[#3D2817] transition-colors hover:bg-[#F5F3EF] hover:text-[#2B7A9B]"
+                        className="block px-4 py-2 text-sm text-[#3D2817] transition-colors hover:bg-[#F2F7E4] hover:text-[#2B7A9B]"
                       >
                         {subitem.name}
                       </Link>
@@ -95,7 +88,7 @@ export default function Header() {
           className={`hidden rounded-full px-6 py-2.5 text-sm font-semibold transition-all md:block ${
             scrolled
               ? "bg-[#2B7A9B] text-white hover:bg-[#236580]"
-              : "bg-white text-[#3D2817] hover:bg-[#F5F3EF]"
+              : "bg-white text-[#3D2817] hover:bg-[#F2F7E4]"
           }`}
         >
           Jetzt buchen
@@ -105,6 +98,7 @@ export default function Header() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden"
+          aria-label="Menu"
         >
           <svg
             className={`h-6 w-6 ${scrolled ? "text-[#3D2817]" : "text-white"}`}
@@ -131,26 +125,26 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Berghotel Style */}
       {mobileMenuOpen && (
-        <div className="bg-white lg:hidden">
-          <ul className="space-y-1 px-6 py-4">
+        <div className="fixed inset-0 top-[88px] z-40 bg-[#F2F7E4] lg:hidden">
+          <ul className="flex h-full flex-col items-center justify-center space-y-8 px-6">
             {navigation.map((item) => (
-              <li key={item.name}>
+              <li key={item.name} className="w-full text-center">
                 <Link
                   href={item.href}
-                  className="block py-2 text-sm font-medium text-[#3D2817] hover:text-[#2B7A9B]"
+                  className="block py-3 text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
                 {item.submenu && (
-                  <ul className="ml-4 space-y-1">
+                  <ul className="mt-4 space-y-2">
                     {item.submenu.map((subitem) => (
                       <li key={subitem.name}>
                         <Link
                           href={subitem.href}
-                          className="block py-1 text-sm text-[#8B8B5C] hover:text-[#2B7A9B]"
+                          className="block py-2 text-lg text-[#8B8B5C] transition-colors hover:text-[#2B7A9B]"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {subitem.name}
@@ -161,6 +155,15 @@ export default function Header() {
                 )}
               </li>
             ))}
+            <li className="pt-8">
+              <Link
+                href="/#buchung"
+                className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 text-lg font-bold text-white transition-all hover:bg-[#236580]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Jetzt buchen
+              </Link>
+            </li>
           </ul>
         </div>
       )}

@@ -10,10 +10,10 @@ export default function ScrollIcon() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      // Rotiere das Logo basierend auf Scroll-Position
-      setRotation(scrollY * 0.3);
-      // Verstecke Icon nach 300px scrollen
-      setVisible(scrollY < 300);
+      // 360° Drehung bei 500px Scroll
+      setRotation((scrollY / 500) * 360);
+      // Verstecke Icon nach 400px scrollen
+      setVisible(scrollY < 400);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,13 +23,13 @@ export default function ScrollIcon() {
   if (!visible) return null;
 
   return (
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce md:hidden">
       <div
         className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/40 bg-white/15 backdrop-blur-md transition-all duration-300 hover:scale-110"
         style={{ transform: `rotate(${rotation}deg)` }}
       >
         <Image
-          src="/images/logo/leos_bergwelt_logo_freigestellt.png"
+          src="/images/logo/leos_bergwelt_scrolling_symbol.png"
           alt="Scroll down"
           width={60}
           height={60}

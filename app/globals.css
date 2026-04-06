@@ -5,8 +5,8 @@
   --color-primary-blue: #2B7A9B;
   --color-primary-olive: #8B8B5C;
   --color-primary-brown: #3D2817;
-  --color-bg-light: #F5F3EF;
-  --color-bg-cream: #FAF8F5;
+  --color-bg-light: #F2F7E4;
+  --color-bg-cream: #f5eac6;
   
   --background: var(--color-bg-cream);
   --foreground: var(--color-primary-brown);
