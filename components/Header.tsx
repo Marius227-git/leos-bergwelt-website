@@ -128,7 +128,18 @@ export default function Header() {
 
       {/* Mobile Menu - Berghotel Balderschwang Style */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#d8dcc4] lg:hidden">
+        <div className="fixed inset-0 top-0 z-40 bg-[#d8dcc4] lg:hidden animate-fade-in">
+          {/* Close Button */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute right-6 top-6 z-50 rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20"
+            aria-label="Menü schließen"
+          >
+            <svg className="h-8 w-8 text-[#3D2817]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           <ul className="flex h-full flex-col items-center justify-center space-y-6 px-6">
             {navigation.map((item) => (
               <li key={item.name} className="text-center">

@@ -7,7 +7,7 @@
   --color-primary-brown: #3D2817;
   --color-bg-light: #F2F7E4;
   --color-bg-cream: #f5eac6;
-  --color-bg-main: #f9faed;
+  --color-bg-main: #fcfcf7;
   
   --background: var(--color-bg-main);
   --foreground: var(--color-primary-brown);
@@ -61,4 +61,31 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary-blue);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out;
 }
