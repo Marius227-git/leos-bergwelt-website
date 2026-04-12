@@ -154,18 +154,20 @@ export default function EnzianPage() {
                   </p>
                 </div>
 
-                <Link
-                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-block rounded-full bg-[#2B7A9B] px-8 py-4 font-semibold text-white transition-all hover:bg-[#236580]"
-                >
-                  Jetzt buchen
-                </Link>
+                <div className="mt-8 text-center">
+                  <Link
+                    href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-full bg-[#2B7A9B] px-8 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
+                  >
+                    Jetzt buchen
+                  </Link>
+                </div>
               </div>
 
               {/* Highlight Images Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {highlightImages.map((image, index) => (
                   <button
                     key={index}

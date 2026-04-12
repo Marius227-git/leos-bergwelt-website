@@ -53,7 +53,7 @@ export default function RoomsSection() {
         <div className="mt-16 grid gap-12 md:grid-cols-3">
           {rooms.map((room) => (
             <article key={room.slug} className="overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
+              <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} enableLightbox={false} />
               <div className="p-6">
                 <Link href={`/zimmer/${room.slug}`}>
                   <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B] cursor-pointer">

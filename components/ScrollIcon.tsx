@@ -46,7 +46,7 @@ export default function ScrollIcon() {
   }, [velocity]);
 
   return (
-    <div className="flex justify-center pb-8 pt-4 md:pb-12 lg:hidden">
+    <div className="flex justify-center pb-8 pt-4 md:pb-12 hidden">
       <div className="relative h-12 w-12">
         <Image
           src="/images/logo/leos_bergwelt_scrolling_symbol_neu.png"

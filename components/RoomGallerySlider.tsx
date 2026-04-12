@@ -32,8 +32,9 @@ export default function RoomGallerySlider({ images, alt, onImageClick }: RoomGal
           src={images[currentIndex]}
           alt={`${alt} - Bild ${currentIndex + 1}`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+          loading="eager"
         />
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />

@@ -61,8 +61,9 @@ export default function ImageSlider({ images, alt, enableLightbox = true }: Imag
             src={images[currentIndex]}
             alt={`${alt} - Bild ${currentIndex + 1}`}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="eager"
           />
           {/* Hover Overlay mit Zoom-Icon */}
           {enableLightbox && (
