@@ -24,19 +24,31 @@ export default function RoomGallerySlider({ images, alt, onImageClick }: RoomGal
 
   return (
     <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
+      {/* Alle Bilder vorrendern - nur Sichtbarkeit wechseln (kein Hängen) */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-300 ${
+            index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <Image
+            src={image}
+            alt={`${alt} - Bild ${index + 1}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            priority={index === 0}
+          />
+        </div>
+      ))}
+
+      {/* Klickbarer Bereich für Lightbox */}
       <button
         onClick={() => onImageClick(currentIndex)}
-        className="relative h-full w-full cursor-pointer"
+        className="absolute inset-0 cursor-pointer"
+        aria-label="Bild vergrößern"
       >
-        <Image
-          src={images[currentIndex]}
-          alt={`${alt} - Bild ${currentIndex + 1}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-          loading="eager"
-        />
-        {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
           <svg className="h-16 w-16 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,7 +57,7 @@ export default function RoomGallerySlider({ images, alt, onImageClick }: RoomGal
         </div>
       </button>
 
-      {/* Navigation Buttons - Always visible */}
+      {/* Navigation Buttons */}
       {images.length > 1 && (
         <>
           <button
@@ -68,7 +80,7 @@ export default function RoomGallerySlider({ images, alt, onImageClick }: RoomGal
           </button>
 
           {/* Dots */}
-          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
             {images.map((_, index) => (
               <button
                 key={index}

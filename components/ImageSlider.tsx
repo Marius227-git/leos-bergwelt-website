@@ -53,20 +53,31 @@ export default function ImageSlider({ images, alt, enableLightbox = true }: Imag
     <>
       {/* Slider */}
       <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
-        <div 
-          onClick={openLightbox}
-          className={enableLightbox ? "cursor-pointer" : ""}
-        >
-          <Image
-            src={images[currentIndex]}
-            alt={`${alt} - Bild ${currentIndex + 1}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            loading="eager"
-          />
-          {/* Hover Overlay mit Zoom-Icon */}
-          {enableLightbox && (
+        {/* Alle Bilder vorrendern - nur Sichtbarkeit wechseln (kein Hängen) */}
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-300 ${
+              index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={image}
+              alt={`${alt} - Bild ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+
+        {/* Klickbarer Bereich für Lightbox */}
+        {enableLightbox && (
+          <div
+            onClick={openLightbox}
+            className="absolute inset-0 cursor-pointer"
+          >
             <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
                 <div className="rounded-full bg-white/90 p-3 shadow-lg">
@@ -76,8 +87,8 @@ export default function ImageSlider({ images, alt, enableLightbox = true }: Imag
                 </div>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Navigation Buttons */}
         {images.length > 1 && (
@@ -102,7 +113,7 @@ export default function ImageSlider({ images, alt, enableLightbox = true }: Imag
             </button>
 
             {/* Dots */}
-            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
               {images.map((_, index) => (
                 <button
                   key={index}
@@ -124,8 +135,8 @@ export default function ImageSlider({ images, alt, enableLightbox = true }: Imag
 
       {/* Lightbox Modal */}
       {lightboxOpen && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 animate-fade-in" 
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95"
           onClick={closeLightbox}
         >
           {/* Close Button */}

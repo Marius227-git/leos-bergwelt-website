@@ -166,20 +166,20 @@ export default function EnzianPage() {
                 </div>
               </div>
 
-              {/* Highlight Images Grid */}
-              <div className="grid grid-cols-1 gap-4">
+              {/* Highlight Images Grid - 2x2 quadratisch */}
+              <div className="grid grid-cols-2 gap-3">
                 {highlightImages.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => openLightbox(index)}
-                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl"
+                    className="group relative aspect-square overflow-hidden rounded-xl"
                   >
                     <Image
                       src={image}
                       alt={`Zimmer Enzian - Bild ${index + 1}`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 1024px) 25vw, 20vw"
                     />
                     <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
