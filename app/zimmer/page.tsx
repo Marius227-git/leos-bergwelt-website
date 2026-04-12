@@ -48,7 +48,7 @@ export default function ZimmerPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f9faed]">
+      <main className="min-h-screen bg-[#fcfcf7]">
         {/* Hero */}
         <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-[#3D2817]">
           <div className="absolute inset-0 z-0 opacity-20">
@@ -72,7 +72,7 @@ export default function ZimmerPage() {
         </section>
 
         {/* Zimmer Grid */}
-        <section className="bg-[#f9faed] py-20 md:py-32">
+        <section className="bg-[#fcfcf7] py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-6 md:px-10">
             <div className="grid gap-12 md:grid-cols-3">
               {rooms.map((room) => (
@@ -80,7 +80,7 @@ export default function ZimmerPage() {
                   <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
                   <div className="p-6">
                     <Link href={`/zimmer/${room.slug}`}>
-                      <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B] cursor-pointer">
+                      <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4] cursor-pointer">
                         {room.name}
                       </h3>
                     </Link>
@@ -126,12 +126,12 @@ export default function ZimmerPage() {
                     Badezimmer
                   </h3>
                   <p className="mt-3 text-[#8B8B5C]">
-                    Modernes Gemeinschaftsbad mit WC und Dusche
+                    Modernes Gemeinschaftsbad mit großem Waschbecken, WC und Dusche
                   </p>
                 </div>
                 <div className="rounded-2xl bg-white p-6 shadow-lg">
                   <h3 className="font-serif text-xl font-bold text-[#3D2817]">
-                    Zusätzliches Gäste-WC
+                    Zusätzliches WC
                   </h3>
                   <p className="mt-3 text-[#8B8B5C]">
                     Weiteres Gäste-WC im Erdgeschoss für zusätzlichen Komfort

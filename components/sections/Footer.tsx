@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +12,10 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           {/* Logo & Beschreibung */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-3 transition-opacity hover:opacity-70"
+            >
               <Image
                 src="/images/logo/leos_bergwelt_logo_freigestellt.png"
                 alt="Leos Bergwelt Logo"
@@ -19,7 +24,7 @@ export default function Footer() {
                 className="h-12 w-12"
               />
               <span className="font-serif text-2xl font-bold">Leos Bergwelt</span>
-            </Link>
+            </button>
             <p className="mt-6 max-w-md text-sm leading-relaxed opacity-70">
               Entspannte Urlaubstage in den Bergen um Oberstdorf. Drei liebevoll gestaltete Zimmer für deinen perfekten Urlaub in Tiefenbach bei Oberstdorf.
             </p>

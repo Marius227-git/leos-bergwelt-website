@@ -41,7 +41,7 @@ export default function KontaktPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f9faed] py-24">
+      <main className="min-h-screen bg-[#fcfcf7] py-24">
         <div className="mx-auto max-w-4xl px-6 md:px-10">
           <h1 className="font-serif text-4xl font-bold text-[#3D2817] md:text-5xl">
             Kontakt
