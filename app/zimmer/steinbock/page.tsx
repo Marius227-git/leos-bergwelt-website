@@ -12,6 +12,11 @@ const gridImages = Array.from({ length: 8 }, (_, i) =>
   `/images/room_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_steinbock_${i + 1}.webp`
 );
 
+// Weitere Bilder für den Slider (Bilder 9–16)
+const moreImages = Array.from({ length: 8 }, (_, i) =>
+  `/images/room_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_steinbock_${i + 9}.webp`
+);
+
 // Alle Bilder für die Lightbox
 const allImages = Array.from({ length: 16 }, (_, i) =>
   `/images/room_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_steinbock_${i + 1}.webp`
@@ -205,6 +210,34 @@ export default function SteinbockPage() {
               >
                 Jetzt buchen
               </Link>
+            </div>
+
+            {/* Weitere Bilder – auf allen Geräten sichtbar */}
+            <div className="mt-16">
+              <h3 className="mb-6 font-serif text-2xl font-bold text-[#3D2817]">Weitere Bilder</h3>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                {moreImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => openLightbox(gridImages.length + index)}
+                    className="group relative aspect-square overflow-hidden rounded-xl"
+                  >
+                    <Image
+                      src={image}
+                      alt={`Zimmer Steinbock - weiteres Bild ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
+                      <svg className="h-8 w-8 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                      </svg>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Weitere Zimmer */}
