@@ -221,14 +221,14 @@ export default function SteinbockPage() {
                     <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
                     <div className="p-6">
                       <Link href={`/zimmer/${room.slug}`}>
-                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4]">
+                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B]">
                           {room.name}
                         </h4>
                       </Link>
-                      <p className="mt-3 text-[#8B8B5C]">{room.description}</p>
-                      <Link href={`/zimmer/${room.slug}`} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#F2F7E4] px-4 py-2 text-sm font-semibold transition-colors hover:bg-[#e5efd5]">
-                        <span className="text-[#3D2817]">Details ansehen</span>
-                        <svg className="h-4 w-4 text-[#3D2817]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <p className="mt-3 text-[#8B8B5C] leading-relaxed">{room.description}</p>
+                      <Link href={`/zimmer/${room.slug}`} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#F2F7E4] px-6 py-3 text-sm font-semibold transition-all hover:bg-[#2B7A9B] hover:scale-105 group">
+                        <span className="text-[#3D2817] group-hover:text-white transition-colors">Details ansehen</span>
+                        <svg className="h-4 w-4 text-[#3D2817] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </Link>

@@ -56,15 +56,15 @@ export default function RoomsSection() {
               <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
               <div className="p-6">
                 <Link href={`/zimmer/${room.slug}`}>
-                  <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4] cursor-pointer">
+                  <h3 className="font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B] cursor-pointer">
                     {room.name}
                   </h3>
                 </Link>
-                <p className="mt-3 text-[#8B8B5C]">{room.description}</p>
-                <Link href={`/zimmer/${room.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#F2F7E4] bg-[#F2F7E4] px-4 py-2 rounded-full transition-colors hover:bg-[#e5efd5]">
-                  <span className="text-[#3D2817]">Details ansehen</span>
+                <p className="mt-3 text-[#8B8B5C] leading-relaxed">{room.description}</p>
+                <Link href={`/zimmer/${room.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold bg-[#F2F7E4] px-6 py-3 rounded-full transition-all hover:bg-[#2B7A9B] hover:scale-105 group">
+                  <span className="text-[#3D2817] group-hover:text-white transition-colors">Details ansehen</span>
                   <svg
-                    className="h-4 w-4 text-[#3D2817]"
+                    className="h-4 w-4 text-[#3D2817] group-hover:text-white transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
