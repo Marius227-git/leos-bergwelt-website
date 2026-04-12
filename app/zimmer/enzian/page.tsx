@@ -121,7 +121,7 @@ export default function EnzianPage() {
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  �️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
+                  🅿️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
                 </p>
 
                 <p className="mt-4 leading-relaxed">

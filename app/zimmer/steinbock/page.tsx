@@ -24,7 +24,7 @@ const otherRooms = [
   {
     name: "Enzian",
     slug: "enzian",
-    description: "Stilvolles Zimmer mit Zugang zum Balkon und Blick auf die Berge.",
+    description: "Preislich am attraktivsten - ohne auf Komfort und Stil zu verzichten",
     images: [
       "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_1.webp",
       "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_2.webp",
@@ -32,13 +32,13 @@ const otherRooms = [
     ],
   },
   {
-    name: "Steinbock",
-    slug: "steinbock",
-    description: "Gemütliches Zimmer mit Balkonzugang und schönem Bergblick.",
+    name: "Zitronenfalter",
+    slug: "zitronenfalter",
+    description: "Stilvolles Zimmer mit Zugang zum Balkon und Blick auf die Berge.",
     images: [
-      "/images/rooms_slideshows/slideshow_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_steinbock_1.webp",
-      "/images/rooms_slideshows/slideshow_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_steinbock_2.webp",
-      "/images/rooms_slideshows/slideshow_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_steinbock_3.webp",
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_1.webp",
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_2.webp",
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_3.webp",
     ],
   },
 ];
@@ -88,7 +88,7 @@ export default function SteinbockPage() {
                 Zimmer Steinbock
               </h1>
               <p className="mt-4 text-lg text-white/90 md:text-xl">
-                Preislich am attraktivsten - ohne auf Komfort, Stil und liebevolle Details zu verzichten
+                Gemütliches Zimmer mit Balkonzugang und schönem Bergblick
               </p>
             </div>
           </div>
@@ -100,22 +100,28 @@ export default function SteinbockPage() {
             <div className="grid gap-12 lg:grid-cols-2">
               {/* Text */}
               <div className="text-[#3D2817]">
-                <h2 className="font-serif text-3xl font-bold">Willkommen im Zimmer Steinbock</h2>
-                
+                <p className="leading-relaxed">
+                  Ideal für Wanderer, Skifahrer & Naturfans! In Tiefenbach bei Oberstdorf vermieten wir eine komplette Etage mit 3 gemütlichen Doppelzimmern – perfekt für Freunde oder Paare. Jedes Zimmer hat ein komfortables Doppelbett. Eine Gemeinschaftsküche und ein gemeinsam genutztes Bad sowie ein zusätzliches Gäste-WC stehen euch zur Verfügung. Ruhige Lage nahe der Breitachklamm – perfekt als Ausgangspunkt für Bergtouren und Skitage!
+                </p>
+
                 <p className="mt-6 leading-relaxed">
-                  Das Zimmer Steinbock ist die perfekte Wahl für alle, die Wert auf ein gutes Preis-Leistungs-Verhältnis legen, ohne dabei auf Komfort und Stil verzichten zu müssen. Mit viel Liebe zum Detail eingerichtet, bietet es dir alles, was du für einen erholsamen Aufenthalt brauchst.
+                  🐐 <strong>Zimmer Steinbock – hell, gemütlich & mit Bergblick</strong> Unser Zimmer Steinbock ist perfekt für alle, die Natur und Komfort schätzen. Das Doppelbett und die Möbel wurden liebevoll aus recyceltem Holz selbst gebaut – nachhaltig, schlicht und voller Charme.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  Das Zimmer verfügt über ein gemütliches Doppelbett, natürliche Materialien und eine warme, einladende Atmosphäre. Hier kannst du nach einem Tag in den Bergen zur Ruhe kommen und neue Energie tanken.
+                  📺 Mit Flachbild-TV & Netflix, einer gemütlichen Leseecke, Plissees zum Abdunkeln und schnellem Glasfaser-WLAN ist alles da, was du brauchst, um dich wie zuhause zu fühlen.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  🛏️ Das Zimmer Steinbock bietet Platz für 2 Personen und ist mit einem bequemen Doppelbett ausgestattet.
+                  🧥 Eine Garderobe bietet Platz für deine Outdoor-Ausrüstung.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  🏔️ Vom Zimmer aus hast du einen schönen Blick ins Grüne und kannst die Ruhe der Natur genießen.
+                  🌄 <strong>Das Beste:</strong> Du hast Zugang zum großen, gemeinsam genutzten Balkon mit Blick aufs Söllereck – perfekt, um das Alpenglühen bei Sonnenuntergang zu erleben, wenn die Berggipfel in warmem Rot leuchten und der Tag langsam zur Ruhe kommt.
+                </p>
+
+                <p className="mt-4 leading-relaxed">
+                  🅿️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
@@ -134,6 +140,28 @@ export default function SteinbockPage() {
                     Ihr erreicht uns jederzeit per Nachricht, Anruf oder persönlich vor Ort – wir sind da, wenn ihr uns braucht, lassen euch aber gleichzeitig euren Freiraum.
                   </p>
                 </div>
+
+                <div className="mt-8">
+                  <h3 className="font-serif text-xl font-bold">Weitere wichtige Hinweise</h3>
+                  <p className="mt-3 leading-relaxed">
+                    Für die Anmeldung bei Oberstdorf brauchen wir von allen Gästen die vollen Namen und Geburtsdaten sowie eine Adresse und eine Mailadresse. Die Informationen können uns im Airbnb Chat geschickt werden.
+                  </p>
+                  <p className="mt-3 leading-relaxed">
+                    Es fällt pro Tag eine Kurtaxe von 4,15€ pro Person pro Nacht an.
+                  </p>
+                  <p className="mt-3 leading-relaxed">
+                    Unsere Gäste erhalten den Oberstdorf Pass per Email. Dieser inkludiert kostenloses Busfahren und viele Vergünstigungen auf Attraktionen.
+                  </p>
+                </div>
+
+                <Link
+                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-block rounded-full bg-[#2B7A9B] px-8 py-4 font-semibold text-white transition-all hover:bg-[#236580]"
+                >
+                  Jetzt buchen
+                </Link>
               </div>
 
               {/* Highlight Images Grid */}
@@ -170,10 +198,19 @@ export default function SteinbockPage() {
                 alt="Zimmer Steinbock Galerie"
                 onImageClick={(index) => openLightbox(highlightImages.length + index)}
               />
+              
+              {/* Booking Button */}
+              <div className="mt-8 text-center">
+                <Link
+                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
+                >
+                  Jetzt buchen
+                </Link>
+              </div>
             </div>
-
-            {/* Tramino Booking Widget */}
-            <RoomBookingWidget roomName="Steinbock" />
 
             {/* Other Rooms */}
             <div className="mt-24">
@@ -184,7 +221,7 @@ export default function SteinbockPage() {
                     <ImageSlider images={room.images} alt={`Zimmer ${room.name}`} />
                     <div className="p-6">
                       <Link href={`/zimmer/${room.slug}`}>
-                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#2B7A9B]">
+                        <h4 className="cursor-pointer font-serif text-2xl font-bold text-[#3D2817] transition-colors hover:text-[#F2F7E4]">
                           {room.name}
                         </h4>
                       </Link>

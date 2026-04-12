@@ -22,13 +22,13 @@ const galleryImages = Array.from({ length: 12 }, (_, i) =>
 
 const otherRooms = [
   {
-    name: "Zitronenfalter",
-    slug: "zitronenfalter",
-    description: "Stilvolles Zimmer mit Zugang zum Balkon und Blick auf die Berge.",
+    name: "Enzian",
+    slug: "enzian",
+    description: "Preislich am attraktivsten - ohne auf Komfort und Stil zu verzichten",
     images: [
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_1.webp",
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_2.webp",
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_3.webp",
+      "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_1.webp",
+      "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_2.webp",
+      "/images/rooms_slideshows/slideshow_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_enzian_3.webp",
     ],
   },
   {
@@ -121,7 +121,7 @@ export default function ZitronenfalterPage() {
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  �️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
+                  🅿️ Kostenlose Parkplätze befinden sich 2-4 Gehminuten entfernt.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
