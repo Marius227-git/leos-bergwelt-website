@@ -5,32 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
-import RoomGallerySlider from "@/components/RoomGallerySlider";
-import RoomBookingWidget from "@/components/RoomBookingWidget";
 import ImageSlider from "@/components/ImageSlider";
 
-const highlightImages = [
-  "/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_1.webp",
-  "/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_2.webp",
-  "/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_3.webp",
-  "/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_4.webp",
-];
+// 8 Bilder für das Grid (Desktop: 2x4, Mobile: 1x4)
+const gridImages = Array.from({ length: 8 }, (_, i) =>
+  `/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_${i + 1}.webp`
+);
 
-const galleryImages = Array.from({ length: 12 }, (_, i) => 
-  `/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_${i + 5}.webp`
+// Alle Bilder für die Lightbox
+const allImages = Array.from({ length: 16 }, (_, i) =>
+  `/images/room_enzian/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_enzian_${i + 1}.webp`
 );
 
 const otherRooms = [
-  {
-    name: "Zitronenfalter",
-    slug: "zitronenfalter",
-    description: "Stilvolles Zimmer mit Zugang zum Balkon und Blick auf die Berge.",
-    images: [
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_1.webp",
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_2.webp",
-      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_3.webp",
-    ],
-  },
   {
     name: "Steinbock",
     slug: "steinbock",
@@ -41,12 +28,21 @@ const otherRooms = [
       "/images/rooms_slideshows/slideshow_steinbock/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_steinbock_3.webp",
     ],
   },
+  {
+    name: "Zitronenfalter",
+    slug: "zitronenfalter",
+    description: "Stilvolles Zimmer mit Zugang zum Balkon und Blick auf die Berge.",
+    images: [
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_1.webp",
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_2.webp",
+      "/images/rooms_slideshows/slideshow_zitronenfalter/leos_bergwelt_ferienwohnung_oberstdorf_tiefenbach_slider_zitronenfalter_3.webp",
+    ],
+  },
 ];
 
 export default function EnzianPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  const allImages = [...highlightImages, ...galleryImages];
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -59,13 +55,8 @@ export default function EnzianPage() {
     document.body.style.overflow = "unset";
   };
 
-  const goToNext = () => {
-    setLightboxIndex((prev) => (prev + 1) % allImages.length);
-  };
-
-  const goToPrevious = () => {
-    setLightboxIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
+  const goToNext = () => setLightboxIndex((prev) => (prev + 1) % allImages.length);
+  const goToPrevious = () => setLightboxIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
 
   return (
     <>
@@ -74,7 +65,7 @@ export default function EnzianPage() {
         {/* Hero Image */}
         <section className="relative h-[60vh] md:h-[70vh]">
           <Image
-            src={highlightImages[0]}
+            src={gridImages[0]}
             alt="Zimmer Enzian - Leos Bergwelt"
             fill
             className="object-cover"
@@ -88,7 +79,7 @@ export default function EnzianPage() {
                 Zimmer Enzian
               </h1>
               <p className="mt-4 text-lg text-white/90 md:text-xl">
-                Preislich am attraktivsten - ohne auf Komfort und Stil zu verzichten
+                Preislich am attraktivsten – ohne auf Komfort und Stil zu verzichten
               </p>
             </div>
           </div>
@@ -97,27 +88,30 @@ export default function EnzianPage() {
         {/* Content */}
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 md:px-10">
+
+            {/* 2-Spalten Layout: Text links, Bilder rechts */}
             <div className="grid gap-12 lg:grid-cols-2">
-              {/* Text */}
+
+              {/* Linke Spalte: Zimmerbeschreibung */}
               <div className="text-[#3D2817]">
                 <p className="leading-relaxed">
                   Ideal für Wanderer, Skifahrer & Naturfans! In Tiefenbach bei Oberstdorf vermieten wir eine komplette Etage mit 3 gemütlichen Doppelzimmern – perfekt für Freunde oder Paare. Jedes Zimmer hat ein komfortables Doppelbett. Eine Gemeinschaftsküche und ein gemeinsam genutztes Bad sowie ein zusätzliches Gäste-WC stehen euch zur Verfügung. Ruhige Lage nahe der Breitachklamm – perfekt als Ausgangspunkt für Bergtouren und Skitage!
                 </p>
 
                 <p className="mt-6 leading-relaxed">
-                  🌿 <strong>Zimmer Enzian – gemütlich, individuell & nachhaltig</strong> Unser Zimmer Enzian vereint Natürlichkeit mit Komfort: Das Doppelbett und die Möbel wurden liebevoll aus recyceltem Holz selbst gebaut – jedes Stück ist ein Unikat mit Charakter.
+                  🌸 <strong>Zimmer Enzian – gemütlich, stilvoll & preislich attraktiv</strong> Unser Zimmer Enzian ist perfekt für alle, die Natur und Komfort schätzen. Das Doppelbett und die Möbel wurden liebevoll aus recyceltem Holz selbst gebaut – nachhaltig, schlicht und voller Charme.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  📺 Für entspannte Abende gibt's einen Flachbild-TV mit Netflix, dazu eine kuschelige Sitzecke, perfekt zum Lesen oder Abschalten.
+                  📺 Mit Flachbild-TV & Netflix, einer gemütlichen Leseecke, Plissees zum Abdunkeln und schnellem Glasfaser-WLAN ist alles da, was du brauchst, um dich wie zuhause zu fühlen.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  💡 Plissees sorgen für angenehme Verdunkelung, und dank schnellem Glasfaser-WLAN bleibst du auch digital bestens verbunden.
+                  🧥 Eine Garderobe bietet Platz für deine Outdoor-Ausrüstung.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
-                  🧥 Eine Garderobe bietet Platz für Jacken, Wanderschuhe & Co. Ein Ort zum Wohlfühlen – natürlich, schlicht und ganz entspannt.
+                  🌄 Das Zimmer Enzian liegt ruhig und gemütlich – ideal für alle, die nach einem langen Wandertag oder Skitag einfach entspannen möchten.
                 </p>
 
                 <p className="mt-4 leading-relaxed">
@@ -154,21 +148,30 @@ export default function EnzianPage() {
                   </p>
                 </div>
 
-                <div className="mt-8 text-center">
-                  <Link
-                    href="https://www.oberstdorf.de/partner/leonie-pinn.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block rounded-full bg-[#2B7A9B] px-8 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
-                  >
-                    Jetzt buchen
-                  </Link>
+                {/* Mobile: 4 Bilder untereinander (nur auf Mobile sichtbar) */}
+                <div className="mt-10 grid grid-cols-1 gap-3 lg:hidden">
+                  {gridImages.slice(0, 4).map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => openLightbox(index)}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-xl"
+                    >
+                      <Image
+                        src={image}
+                        alt={`Zimmer Enzian - Bild ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="100vw"
+                      />
+                      <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              {/* Highlight Images Grid - 2x2 quadratisch */}
-              <div className="grid grid-cols-2 gap-3">
-                {highlightImages.map((image, index) => (
+              {/* Rechte Spalte: 8 Bilder in 2x4 Grid (nur auf Desktop sichtbar) */}
+              <div className="hidden lg:grid grid-cols-2 gap-3 content-start">
+                {gridImages.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => openLightbox(index)}
@@ -179,11 +182,11 @@ export default function EnzianPage() {
                       alt={`Zimmer Enzian - Bild ${index + 1}`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 1024px) 25vw, 20vw"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                      <svg className="h-12 w-12 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-10 w-10 text-white drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
                       </svg>
                     </div>
@@ -192,29 +195,19 @@ export default function EnzianPage() {
               </div>
             </div>
 
-            {/* Gallery Slider */}
-            <div className="mt-16">
-              <h3 className="mb-6 font-serif text-2xl font-bold text-[#3D2817]">Weitere Bilder</h3>
-              <RoomGallerySlider 
-                images={galleryImages} 
-                alt="Zimmer Enzian Galerie"
-                onImageClick={(index) => openLightbox(highlightImages.length + index)}
-              />
-              
-              {/* Booking Button */}
-              <div className="mt-8 text-center">
-                <Link
-                  href="https://www.oberstdorf.de/partner/leonie-pinn.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
-                >
-                  Jetzt buchen
-                </Link>
-              </div>
+            {/* "Jetzt buchen" Button – zentriert über die gesamte Seitenbreite */}
+            <div className="mt-10 text-center">
+              <Link
+                href="https://www.oberstdorf.de/partner/leonie-pinn.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-full bg-[#2B7A9B] px-10 py-4 font-semibold text-white transition-all hover:bg-[#236580] hover:scale-105"
+              >
+                Jetzt buchen
+              </Link>
             </div>
 
-            {/* Other Rooms */}
+            {/* Weitere Zimmer */}
             <div className="mt-24">
               <h3 className="mb-12 text-center font-serif text-3xl font-bold text-[#3D2817]">Weitere Zimmer</h3>
               <div className="grid gap-12 md:grid-cols-2">
@@ -248,10 +241,7 @@ export default function EnzianPage() {
       {lightboxOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95" onClick={closeLightbox}>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              closeLightbox();
-            }}
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
             className="absolute right-4 top-4 z-[101] rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
             aria-label="Schließen"
           >
@@ -270,32 +260,28 @@ export default function EnzianPage() {
             />
           </div>
 
-          {allImages.length > 1 && (
-            <>
-              <button
-                onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
-                aria-label="Vorheriges Bild"
-              >
-                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); goToNext(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
-                aria-label="Nächstes Bild"
-              >
-                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+            aria-label="Vorheriges Bild"
+          >
+            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); goToNext(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+            aria-label="Nächstes Bild"
+          >
+            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
 
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
-                {lightboxIndex + 1} / {allImages.length}
-              </div>
-            </>
-          )}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
+            {lightboxIndex + 1} / {allImages.length}
+          </div>
         </div>
       )}
     </>
